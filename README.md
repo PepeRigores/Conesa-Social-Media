@@ -48,12 +48,12 @@ Para ejecutar este proyecto localmente, sigue estos pasos:
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/
+   git clone https://github.com/PepeRigores/Conesa-Social-Media.git
    ```
 
 2. Navega al directorio del proyecto:
    ```bash
-   cd conesa
+   cd Conesa-Social-Media
    ```
 
 3. Instala las dependencias:
@@ -111,7 +111,7 @@ Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archiv
 
 ## Contacto
 
-Para cualquier consulta o sugerencia, puedes contactar a <manureina87@gmail.com> o abrir un issue en el repositorio.
+Para cualquier consulta o sugerencia, puedes contactar a <pepe.rigores@gmail.com> o abrir un issue en el repositorio.
 
 ---
 
