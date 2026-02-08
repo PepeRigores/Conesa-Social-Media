@@ -1,0 +1,810 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+TAS&display=swap');
+
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", serif;
+  background-color: #f4f4f4;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #264561;
+  color: white;
+  position: relative;
+  z-index: 2;
+}
+
+.divider {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: absolute;
+  margin-top: -10px; /* Para que el divider toque el header */
+  z-index: 1;
+}
+
+.content {
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* Logo */
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo img {
+  height: 60px;
+  width: 60px;
+}
+
+.header__logo-title {
+  font-family: "Playwrite AU TAS", cursive;
+  font-size: 2.2rem;
+  margin-left: 2.5rem;
+  font-weight: 700;
+  align-items: center;
+  text-align: center;
+}
+
+/* Navegación */
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.header__nav-list {
+  display: flex;
+  gap: 1.5rem; /* Ajuste del espacio entre enlaces */
+  list-style-type: none;
+  padding: 0;
+}
+
+.header__nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.header__nav-link:hover {
+  color: #cde6c6; /* Cambia el color según tu diseño */
+}
+
+/* Ocultar el menú en pantallas pequeñas */
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
+    position: fixed;
+    top: 0px;
+    right: 0;
+    height: 100vh;
+    width: 60%;
+    background-color: rgba(38, 69, 97, 0.8);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    transform: translate(100%);
+  }
+
+  /* Mostrar el menú cuando esté abierto */
+  .header__nav--open {
+    display: flex;
+    transform: translate(0);
+    flex-direction: column;
+  }
+
+  /* Estilos del botón hamburguesa */
+  .header__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .header__menu-line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
+
+  .header__menu-line:hover {
+    background-color: #cde6c6; /* Cambia el color según tu diseño */
+  }
+
+  .header__nav-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Ocultar el botón hamburguesa en pantallas grandes */
+@media (min-width: 769px) {
+  .header__menu {
+    display: none;
+  }
+}
+
+.img-404 {
+  height: 90vh;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  filter: drop-shadow(3px 3px 0.8rem #264561);
+}
+
+/*CONTACT-FORM*/
+
+/* Estilos generales del formulario */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #cde6c6;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  font-size: 1rem;
+}
+
+/* Estilos para el enlace de las condiciones legales y política de privacidad */
+.link {
+  color: #264561; /* Asegúrate de que el color del enlace se destaque */
+  text-decoration: underline; /* Opción para subrayar los enlaces */
+}
+
+.link:hover {
+  color: #1e3a51; /* Color al pasar el mouse sobre el enlace */
+}
+
+/* Estilos para la página Contact */
+
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  padding: 1rem;
+  padding-bottom: 80px; /* Espacio adicional para evitar solapamiento con el footer */
+  margin: 0 auto;
+}
+
+.contact-page .contact-form {
+  max-width: 600px; /* Más ancho en página Contact */
+  margin: 80px auto;
+}
+
+/* Estilos para campos del formulario */
+.contact-form label {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Label con input en columna */
+.contact-form label:not(.contact-form__checkbox-label) {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form input[type="email"],
+.contact-form select,
+.contact-form textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-top: 0.3rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+/* Checkbox y texto alineados horizontalmente */
+.contact-form__checkbox-label {
+  display: flex;
+  align-items: center; /* Alineación vertical del checkbox y el texto */
+  font-size: 0.9rem; /* Tamaño de letra más pequeño */
+  color: #333;
+  margin-top: 0.5rem; /* Espacio superior para separación */
+}
+
+.contact-form__checkbox-label input[type="checkbox"] {
+  margin-right: 0.5rem; /* Espacio entre el checkbox y el texto */
+  transform: scale(1.2); /* Aumentar el tamaño del checkbox */
+}
+
+/* Asegurarse de que el texto no esté afectado por otros estilos */
+.contact-form__checkbox-label span {
+  line-height: 1.5; /* Ajustar la altura de línea para mejor alineación */
+}
+
+/* Aumentar el tamaño del formulario en la página de contacto */
+.contact-page .contact-form {
+  max-width: 600px; /* Aumentar el ancho del formulario */
+  margin: 80px auto; /* Centrar el formulario */
+}
+
+/* Botón de envío */
+.contact-form button {
+  padding: 0.75rem 1.25rem;
+  background-color: #264561;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #1e3a51;
+}
+
+.contact-section h3 {
+  font-size: 1.5rem; /* Tamaño de fuente para el título */
+  color: #264561; /* Color del texto del título */
+  margin-top: 1rem; /* Espacio superior */
+}
+.contac-section h2 {
+  font-size: 1.5rem; /* Tamaño de fuente para el título */
+  color: #264561; /* Color del texto del título */
+  margin-top: 1rem; /* Espacio superior */
+}
+
+.contact-section p {
+  font-size: 1.1rem; /* Tamaño de fuente para el subtítulo */
+  color: #264561; /* Color del texto del subtítulo */
+  margin-bottom: 1.5rem; /* Espacio inferior */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-form {
+    width: 100%;
+    padding: 1rem;
+    font-size: 0.9rem;
+    box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
+  }
+
+  .contact-page .contact-form {
+    width: 100%; /* Ancho completo en la página de contacto también */
+    padding: 1rem;
+  }
+}
+
+/* Footer general */
+.footer {
+  margin-top: auto;
+  width: 100%;
+  background-color: #264561; /* Color de fondo del footer */
+  color: #cde6c6;
+  font-size: 0.9rem;
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.footer__column {
+  flex: 1;
+  gap: rem;
+  padding: 0 1rem;
+  margin: 0 1rem;
+}
+
+.footer__column h3 {
+  font-size: 1.25rem;
+}
+
+.footer__contact-info,
+.footer__navigation,
+.footer__legal {
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.footer__contact-info p,
+.footer__navigation ul,
+.footer__legal ul,
+.footer a {
+  margin: 0.5rem 0;
+  color: #cde6c6;
+  text-decoration: none;
+}
+
+.footer a {
+  margin-right: 0.5rem;
+  size: 2rem;
+  display: flex;
+  display: row;
+}
+.footer a:hover {
+  color: #93bb9e;
+  transform: scale(1.06);
+  transition: all 0.3s;
+}
+
+.footer__navigation ul,
+.footer__legal ul {
+  list-style: none;
+  padding: 0;
+  color: #cde6c6;
+}
+
+.footer__navigation li,
+.footer__legal li {
+  margin: 0.5rem 0;
+  color: #cde6c6;
+}
+
+.footer__navigation a,
+.footer__legal a {
+  color: #cde6c6;
+  text-decoration: none;
+}
+
+.footer__navigation a:hover,
+.footer__legal a:hover {
+  color: #93bb9e;
+}
+
+.footer__sub-footer {
+  background-color: #264561;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 0.8rem;
+  color: #cde6c6;
+}
+
+/* Responsive Styles para el Footer */
+@media (max-width: 768px) {
+  .footer__content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer__column {
+    margin-bottom: 1rem;
+  }
+}
+
+/* PAGINA DE INICIO */
+
+/* Estilo general de Inicio */
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  color: #264561;
+  background: #f4f4f4; /* Fondo suave */
+  padding: 2rem 4rem;
+  gap: 2rem;
+}
+
+.hero-content {
+  flex: 1;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #264561;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  color: #5b6b8b;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+}
+
+.hero-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-button--primary {
+  background-color: #264561;
+  color: #ffffff;
+}
+
+.hero-button--secondary {
+  background-color: #ffffff;
+  color: #264561;
+  border: 2px solid #264561;
+}
+
+.hero-button:hover {
+  transform: scale(1.05);
+}
+
+.hero-image {
+  flex: 0.6;
+  background: url("/public/images/background.webp") no-repeat center;
+  background-size: contain;
+  filter: opacity(0.9);
+  height: 70vh;
+  filter: drop-shadow(1.5px 1.5px 0.4rem #264561);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column; /* Cambia la disposición a columna */
+    padding: 1rem;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero-image {
+    height: 40vh; /* Ajusta la altura en móviles */
+  }
+}
+
+/* Servicios Section */
+.servicios-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+.servicios-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #264561;
+}
+
+.servicios-list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.servicio-card {
+  background-color: #cde6c6;
+  padding: 2rem;
+  border-radius: 8px;
+  color: #264561;
+  min-width: 250px;
+  max-width: 350px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Proceso Section */
+.proceso-section {
+  padding: 4rem 2rem;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+.proceso-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #264561;
+}
+
+.proceso-timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.proceso-step {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: #264561;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.08);
+}
+
+.proceso-step--left {
+  align-self: flex-start;
+  margin-left: 500px;
+  background-color: #cde6c6;
+}
+
+.proceso-step--right {
+  align-self: flex-end;
+  margin-right: 500px;
+  background-color: #93bb9e;
+}
+
+.proceso-step h4 {
+  margin: 0;
+}
+
+.proceso-step p {
+  margin: 0;
+}
+
+/* CTA Final Section */
+.cta-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f4f4f4;
+  color: #264561;
+}
+
+.cta-section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.cta-section button {
+  background-color: #264561;
+  color: #93bb9e;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.cta-section button:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .proceso-step {
+    width: 100%; /* Usa todo el ancho en pantallas pequeñas */
+    margin: 0 auto; /* Centra el contenido */
+  }
+
+  .proceso-step--left,
+  .proceso-step--right {
+    align-self: center; /* Centra los pasos */
+    margin: 0; /* Elimina los márgenes laterales */
+  }
+}
+
+/* Contenedor del Documento */
+.document-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Estilos Generales para Políticas Legales */
+.politica-cookies,
+.politica-privacidad,
+.aviso-legal {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f5f9f8;
+  color: #264561;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Estilos para títulos principales y secciones */
+.politica-cookies h1,
+.politica-privacidad h1,
+.aviso-legal h1 {
+  font-size: 2.5rem;
+  color: #264561;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.politica-cookies h2,
+.politica-privacidad h2,
+.aviso-legal h2 {
+  font-size: 1.8rem;
+  color: #264561;
+  border-left: 4px solid #93bb9e;
+  padding-left: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para los párrafos */
+.politica-cookies p,
+.politica-privacidad p,
+.aviso-legal p {
+  font-size: 1rem;
+  color: #3b4a5a;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para las listas */
+.politica-cookies ul,
+.politica-privacidad ul,
+.aviso-legal ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.politica-cookies ul li,
+.politica-privacidad ul li,
+.aviso-legal ul li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Enlaces */
+.politica-cookies a,
+.politica-privacidad a,
+.aviso-legal a {
+  color: #264561;
+  text-decoration: underline;
+}
+
+.politica-cookies a:hover,
+.politica-privacidad a:hover,
+.aviso-legal a:hover {
+  color: #93bb9e;
+  text-decoration: none;
+}
+
+/* Responsive - Ajustes en pantallas más pequeñas */
+@media (max-width: 768px) {
+  .document-container {
+    padding: 1.5rem;
+  }
+
+  .politica-cookies h1,
+  .politica-privacidad h1,
+  .aviso-legal h1 {
+    font-size: 2rem;
+  }
+
+  .politica-cookies h2,
+  .politica-privacidad h2,
+  .aviso-legal h2 {
+    font-size: 1.5rem;
+  }
+
+  .politica-cookies p,
+  .politica-privacidad p,
+  .aviso-legal p {
+    font-size: 0.95rem;
+  }
+}
+
+/* SERVICES PAGE */
+
+.workflow__card {
+  margin: 0 auto;
+  margin-top: 2%;
+  max-width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.workflow__card h2 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.servicios-title {
+  font-size: 2.5rem;
+  color: #264561;
+  text-align: center;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+/* Contenedor para los botones de acción */
+.action-buttons {
+  display: flex;
+  justify-content: center; /* Centra los botones */
+  gap: 1rem; /* Espacio entre los botones */
+  margin: 3rem 0; /* Espaciado arriba y abajo */
+}
+
+/* Estilos generales para los botones */
+.action-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Botón de Presupuesto */
+.budget-button {
+  background-color: #93bb9e;
+  color: #264561;
+}
+
+/* Botón de Contacto */
+.contact-button {
+  background-color: #264561;
+  color: #fff;
+}
+
+/* Efecto hover para ambos botones */
+.action-button:hover {
+  transform: scale(1.05);
+}
+
+/* Efecto de desvanecimiento para los elementos */
+.fade-in {
+  opacity: 0; /* Oculto inicialmente */
+  transform: translateY(40px); /* Desplazado hacia abajo */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Efecto de desvanecimiento y desplazamiento */
+}
+
+.fade-in.visible {
+  opacity: 1; /* Visibles cuando se agrega la clase */
+  transform: translateY(0); /* Sin desplazamiento */
+}
